@@ -1,0 +1,88 @@
+.container{
+min-height:100vh;
+display:flex;
+
+justify-content: center;
+align-items: center;
+}
+body{
+  background-color: #CDF0EA;
+
+}
+.bg{
+  background-image: url("");
+background-repeat:round;
+}
+.player-box{
+  width:80%;
+  height:55%;
+  background-color: #FFEAC9;
+  box-shadow: 20px 20px 5px #444444;
+  border: 5px solid black;
+  border-radius: 5%;
+  overflow: hidden;
+  background-image: url("https://cdn.wallpapersafari.com/59/94/g7KCNA.jpg")
+
+}
+.play{
+  font-size:4rem;
+
+
+}
+.play:hover
+{
+  /* background-color: #E5D549; */
+  border-radius:50%;
+  transform: scale(1.1);
+}
+.play-btn{
+  font-size:6rem;
+  border-radius:50%;
+  /* background-color: yellow; */
+}
+.song-img img{
+  /* margin-top:5%; */
+width:100%;
+height:100%;
+/* vertical-align: bottom; */
+/* display:block; */
+margin: 0 auto;
+}
+.song-func{
+  background-image: url("https://cdn.wallpapersafari.com/59/94/g7KCNA.jpg")
+  width:100%;
+  height:30%;
+  /* background-color: #DFEEEA; */
+  display: flex;
+justify-content: space-around;
+align-items: center;
+/* border-radius: 10%; */
+/* box-shadow: 20px 20px 20px 20px black; */
+background-image: url("https://cdn.wallpapersafari.com/59/94/g7KCNA.jpg")
+
+}
+.song-img{
+  display: flex;
+  flex-direction: column;
+  object-fit: contain;
+
+  /* box-shadow: 20px 20px 20px 20px black; */
+
+}
+audio{
+  width:100%;
+  margin-top: 10px;
+}
+@media (min-width:750px){
+
+  .player-box{
+    width:40%;
+    height:10%;
+  }
+}
+@media(max-width:450px){
+  .playerbox{
+    width:80%;
+    height:55%;
+  }
+}
