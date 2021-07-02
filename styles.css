@@ -102,6 +102,13 @@ margin-bottom: 1%;;
   font-size:0.8rem;
   white-space:inherit;
 }
+.footer{
+  margin-top:3.5%;
+  font-size:0.55rem;
+  color:#444444;
+  
+  
+}
 
 audio{
   width:100%;
