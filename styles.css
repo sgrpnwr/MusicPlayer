@@ -210,5 +210,7 @@ audio{
   #replay:hover{
     transform: scale(1.0);
   }
-  
+  #spotify:hover{
+    transform: scale(1.0);
+  }
 }
