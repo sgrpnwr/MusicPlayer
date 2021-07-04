@@ -90,7 +90,6 @@ if(isPlaying===true){
 }
 i=(i+1)%songs.length;
 song=new Audio(songs[i].name);
-// console.log(song.duration);
 $(".album_cover").attr("src",songs[i].name.replace("mp3","jpeg"));
 $(".track").html(songs[i].title);
 $(".artist").html(songs[i].artist)
@@ -117,7 +116,6 @@ $(".duration").html(songs[i].time);
 
 
 playSong();
-// console.log(song.duration);
 
 
 });
@@ -133,16 +131,12 @@ function playSong(){
   $(".duration").html(songs[i].time);
 
   song.play();
-console.log(song);
   $(".play-btn").removeClass('far fa-play-circle');
   $(".play-btn").addClass('far fa-pause-circle');
   $(".play-btn").css("background-color","#9FE6A0");
   $("body").addClass("bg");
 
-//   setTimeout(function(){
-// $(".duration").html(Math.floor(song.duration/60)+":"+("0" + (Math.floor((song.duration/60 -Math.floor(song.duration/60))*60))).slice(-2));
-//
-//   console.log(song.duration/60);},100);
+
 $(".duration").html(song.time);
 
 
@@ -153,10 +147,8 @@ setInterval(function(){
 
   $(".seconds").html(("0"+(((Math.floor(song.currentTime))+1))%60).slice(-2));
   $(".minutes").html(Math.floor((song.currentTime+1)/60));
-  console.log(song.currentTime+1);
-  console.log((song.currentTime+1)/60);
+
   var current_width=(song.currentTime/song.duration)*100;
-  console.log(current_width);
   $("#progress").css("width",current_width+"%");
  }
 
@@ -175,3 +167,12 @@ $(".play-btn").addClass('far fa-play-circle');
 $(".play-btn").css("background-color","#F5A962");
 $("body").removeClass("bg");
 }
+$("#progress_div").click(function(event){
+console.log(event);
+  var fill_progress=(event.offsetX)/(348)*100;
+  $("#progress").css("width",fill_progress+"%");
+
+  var newTime=(fill_progress*song.duration)/100/60;
+  var ans=(newTime-Math.trunc(newTime))*60;
+  song.currentTime=(fill_progress*song.duration)/100;
+})
