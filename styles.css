@@ -122,29 +122,64 @@ border-radius:5%;
   display: flex;
   justify-content: space-between;
   padding:0 1%;
+
 }
 #progress_div{
   box-shadow:  20px 5px 20px black;
   margin-bottom: 5%;
 height:0.6rem;
 cursor: pointer;
-background-color: #fff;
-
+background-color: white;
 }
 #progress{
-  background-color: #171717;
-  width:0%;
+  background-color: #393E46;
+  width:0;
   height:100%;
 pointer-events: none;
+position: relative;
 
+}
+#circle{
+  position: absolute;
+  right:0;
+  /* font-size: 3rem; */
+  background-color: #3C8DAD;
+  border-radius: 100%;
+}
+#replay{
+
+/* color:#5AA897; */
+font-size:2rem;
+cursor: pointer;
+
+}
+#replay:hover{
+  transform: scale(2);
+}
+#spotify{
+
+  color: #1DB954;
+  font-size:3rem;
+cursor: pointer;
+background:black;
+border-radius: 80%;
+
+}
+a{
+  padding: 0;
+  margin-bottom: 5%;
+}
+#spotify:hover{
+  transform: scale(2);
 }
 .footer{
   margin-top:3.5%;
-  font-size:0.55rem;
+  font-size:0.8rem;
   color:#444444;
 
 
 }
+
 audio{
   width:100%;
   margin-top: 10px;
