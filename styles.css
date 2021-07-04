@@ -196,4 +196,19 @@ audio{
     width:80%;
     height:55%;
   }
+  #spotify{
+    font-size: 1.5rem;
+    align-items: baseline;
+    margin-bottom: 0
+
+  }
+  #replay{
+    font-size: 1.5rem;
+    margin-top: 5%;
+
+  }
+  #replay:hover{
+    transform: scale(1.0);
+  }
+  
 }
