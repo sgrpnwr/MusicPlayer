@@ -168,11 +168,17 @@ $(".play-btn").css("background-color","#F5A962");
 $("body").removeClass("bg");
 }
 $("#progress_div").click(function(event){
-console.log(event);
-  var fill_progress=(event.offsetX)/(348)*100;
+  const a=event.target.clientWidth;
+
+
+
+  var fill_progress=(event.offsetX)/(event.target.clientWidth)*100;
   $("#progress").css("width",fill_progress+"%");
 
   var newTime=(fill_progress*song.duration)/100/60;
   var ans=(newTime-Math.trunc(newTime))*60;
+  
+  $(".minutes").html(Math.trunc(newTime))
+  $(".seconds").html(("0"+Math.trunc(ans)).slice(-2))
   song.currentTime=(fill_progress*song.duration)/100;
 })
