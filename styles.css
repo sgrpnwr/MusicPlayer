@@ -1,7 +1,6 @@
 .container{
 min-height:100vh;
 display:flex;
-  flex-direction:column;
 
 justify-content: center;
 align-items: center;
@@ -12,8 +11,19 @@ body{
 
 }
 .bg{
-  background-image: url("https://i.gifer.com/2I3c.gif");
-background-size: contain;
+  /* background-image: url("https://i.gifer.com/2I3c.gif"); */
+  background-color: #FAF1E6;
+  /* background-image: url("https://wallpaperaccess.com/full/521120.jpg"); */
+background-size: cover;
+}
+
+.wave{
+  position: absolute;
+  opacity:0.3;
+  bottom:0;
+  display: none;
+  height:100%;
+  width:100%;
 }
 .player-box{
   width:80%;
@@ -61,6 +71,7 @@ margin: 0 auto;
   background-image: url("https://cdn.wallpapersafari.com/59/94/g7KCNA.jpg")
   width:100%;
   height:10%;
+  position: relative;
   /* background-color: #DFEEEA; */
   display: flex;
 justify-content: space-around;
@@ -69,7 +80,8 @@ align-items:center;
 /* box-shadow: 20px 20px 20px 20px black; */
 background-image: url("https://cdn.wallpapersafari.com/59/94/g7KCNA.jpg")
 position:absolute;
-bottom:10px
+bottom:10px;
+
 }
 .functions{
   display:flex;
@@ -82,7 +94,7 @@ bottom:10px
   object-fit: contain;
 position: relative;
 overflow: hidden;
-margin-bottom: 1%;;
+/* margin-bottom: 1%;; */
   /* box-shadow: 20px 20px 20px 20px black; */
 
 }
@@ -102,15 +114,34 @@ margin-bottom: 1%;;
   color:#343A40;
   font-size:0.8rem;
   white-space:inherit;
-}
-.footer{
-  margin-top:3.5%;
-  font-size:0.55rem;
-  color:#444444;
-  
-  
+  margin-bottom: 0;
 }
 
+/* progress bar */
+
+.progress_container{
+  width:100%;
+  /* background-color: blue; */
+padding: 0 2%;
+border-radius:5%;
+}
+.time{
+  display: flex;
+  justify-content: space-between;
+  padding:0 1%;
+}
+#progress_div{
+  box-shadow:  20px 5px 20px black;
+  margin-bottom: 5%;
+height:0.3rem;
+}
+#progress{
+  background-color: #171717;
+  width:0%;
+  height:100%;
+
+
+}
 audio{
   width:100%;
   margin-top: 10px;
