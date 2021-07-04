@@ -2,40 +2,48 @@ var songs = [
   {
     name:"Georgia.mp3",
     artist:"Vance Joy",
-    title:"Georgia"
+    title:"Georgia",
+    time:"3:50"
   },
 
   {
     name:"Clocks.mp3",
     artist:"Coldplay",
-    title:"Clocks"
+    title:"Clocks",
+    time:"5:08"
   },
   {
     name:"Gully_Boy.mp3",
     artist:"MIDIval Punditz, Raghu Dixit",
-    title:"Train Song"
+    title:"Train Song",
+    time:"3:58"
   },
   {
     name:"LeapOfFaith.mp3",
     artist:"Christopher",
-    title:"Leap of Faith"
+    title:"Leap of Faith",
+    time:"3:49"
   },
   {
     name:"Brown_Mundey.mp3",
     artist:"AP Dhillon",
-    title:"Brown Munde"
+    title:"Brown Munde",
+    time:"3:47"
   },
 
   {
     name:"Alag_Aasmaan.mp3",
     artist:"Anuv Jain",
-    title:"Alag Aasmaan"
+    title:"Alag Aasmaan",
+    time:"3:32"
   }
 
   ];
   $(".album_cover").attr("src",songs[0].name.replace("mp3","jpeg"));
   $(".track").html(songs[0].title);
   $(".artist").html(songs[0].artist)
+  $(".duration").html(songs[0].time);
+
 
   $("body").on("keydown", function(e){
         if(e.keyCode == 32){
@@ -86,6 +94,8 @@ song=new Audio(songs[i].name);
 $(".album_cover").attr("src",songs[i].name.replace("mp3","jpeg"));
 $(".track").html(songs[i].title);
 $(".artist").html(songs[i].artist)
+$(".duration").html(songs[i].time);
+
 // $(".album_cover").slideUp();
 playSong();
 
@@ -103,6 +113,8 @@ song=new Audio(songs[i].name);
 $(".album_cover").attr("src",songs[i].name.replace("mp3","jpeg"));
 $(".track").html(songs[i].title)
 $(".artist").html(songs[i].artist)
+$(".duration").html(songs[i].time);
+
 
 playSong();
 // console.log(song.duration);
@@ -115,10 +127,11 @@ function playSong(){
   isPlaying=true;
 
   $(".album_cover").slideDown(1000);
-$(".wave").css("display","block")
   $(".album_cover").attr("src",songs[i].name.replace("mp3","jpeg"));
   $(".track").html(songs[i].title)
   $(".artist").html(songs[i].artist)
+  $(".duration").html(songs[i].time);
+
   song.play();
 console.log(song);
   $(".play-btn").removeClass('far fa-play-circle');
@@ -126,10 +139,11 @@ console.log(song);
   $(".play-btn").css("background-color","#9FE6A0");
   $("body").addClass("bg");
 
-  setTimeout(function(){
-$(".duration").html(Math.floor(song.duration/60)+":"+("0" + (Math.floor((song.duration/60 -Math.floor(song.duration/60))*60))).slice(-2));
-
-  console.log(song.duration/60);},100);
+//   setTimeout(function(){
+// $(".duration").html(Math.floor(song.duration/60)+":"+("0" + (Math.floor((song.duration/60 -Math.floor(song.duration/60))*60))).slice(-2));
+//
+//   console.log(song.duration/60);},100);
+$(".duration").html(song.time);
 
 
 
@@ -153,7 +167,6 @@ setInterval(function(){
 
 function pauseSong(){
 isPlaying=false;
-$(".wave").css("display","none");
 
 
 song.pause();
