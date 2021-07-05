@@ -16,7 +16,13 @@ var songs = [
     time:"3:51",
     spotify_url:"https://open.spotify.com/track/6Fha6tXHkL3r9m9nNqQG8p?si=EPYPdhQsRjmwnn9O58G7lA&dl_branch=1"
   },
-
+  {
+    name:"Sindbad.mp3",
+    artist:"Shankar Ehsaan Loy",
+    title:"Sindbad The Sailor",
+    time:"6:33",
+    spotify_url:"https://open.spotify.com/track/74kCarkFBzXYXNkkYJIsG0?si=xfCdIEOqT-6kK6jjO4PF5A&dl_branch=1"
+  },
   {
     name:"Clocks.mp3",
     artist:"Coldplay",
@@ -42,7 +48,7 @@ var songs = [
     name:"Brown_Mundey.mp3",
     artist:"AP Dhillon",
     title:"Brown Munde",
-    time:"4:28",
+    time:"3:48",
     spotify_url:"https://open.spotify.com/track/58f4twRnbZOOVUhMUpplJ4?si=-9G6b8dvTDyu7bJN8pOjqQ&dl_branch=1"
   },
 
@@ -53,6 +59,7 @@ var songs = [
     time:"3:33",
     spotify_url:"https://open.spotify.com/track/74kCarkFBzXYXNkkYJIsG0?si=xfCdIEOqT-6kK6jjO4PF5A&dl_branch=1"
   }
+
 
   ];
   $(".album_cover").attr("src",songs[0].name.replace("mp3","jpeg"));
