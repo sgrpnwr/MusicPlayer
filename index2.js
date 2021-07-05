@@ -42,7 +42,7 @@ var songs = [
     name:"Brown_Mundey.mp3",
     artist:"AP Dhillon",
     title:"Brown Munde",
-    time:"3:48",
+    time:"4:28",
     spotify_url:"https://open.spotify.com/track/58f4twRnbZOOVUhMUpplJ4?si=-9G6b8dvTDyu7bJN8pOjqQ&dl_branch=1"
   },
 
