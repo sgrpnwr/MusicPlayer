@@ -12,8 +12,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body onload="myFunction()">
 <!-- <i class="fas fa-history"></i> -->
+<div id="loading">
+
+</div>
     <div class="container">
 
       <div class="player-box">
@@ -21,9 +24,12 @@
             <div class="song-img">
 
 <img class="album_cover" src="" alt="">
+
 </div>
-<h3 class="track"></h3>
-<h5 class="artist"></h4>
+<h3 class="track">
+
+</h3>
+<h5 title="Artist" class="artist"></h4>
 <div class="progress_container">
   <div class="time">
     <div class="current_time"><span class="minutes">0</span>:<span class="seconds">00</span>
@@ -46,15 +52,16 @@
 </div>
             <div class="song-func">
 
-              <i class="play prev-btn fas fa-step-backward"></i>
-              <i class="play fas fa-history" id="replay"></i>
+              <i title="Play from beginning"class="play fas fa-history" id="replay"></i>
+              <i title="Previous song"class="play prev-btn fas fa-step-backward"></i>
 
-              <i class="play play-btn far fa-play-circle"></i>
-              <a href="https://open.spotify.com/track/6Fha6tXHkL3r9m9nNqQG8p?si=EPYPdhQsRjmwnn9O58G7lA&dl_branch=1"><i class="play fab fa-spotify" id="spotify"></i>
-</a>
+              <i title="Play"class="play play-btn far fa-play-circle"></i>
+              <!-- <a href="https://open.spotify.com/track/6Fha6tXHkL3r9m9nNqQG8p?si=EPYPdhQsRjmwnn9O58G7lA&dl_branch=1"><i class="play fab fa-spotify" id="spotify"></i>
+</a> -->
 
+              <i title="Next Song"class="play next-btn fas fa-step-forward"></i>
+              <i title="On Loop" class="fas fa-retweet" id="Loop"></i>
 
-              <i class="play next-btn fas fa-step-forward"></i>
             </div>
 
       </div>
@@ -64,5 +71,6 @@
 <script type="text/javascript" src="index2.js">
 
 </script>
+
   </body>
 </html>
