@@ -34,7 +34,7 @@ background-size: cover;
 .play{
   font-size:3rem;
 margin-bottom:5%;
-
+cursor: pointer;
 }
 .play:hover
 {
@@ -43,7 +43,7 @@ margin-bottom:5%;
   /* transform: scale(1.1); */
 }
 .play-btn{
-  font-size:6rem;
+  font-size:5rem;
   /* border-radius:50%; */
   /* background-color: yellow; */
   overflow: hidden;
@@ -100,6 +100,7 @@ overflow: hidden;
   box-shadow:  5px 5px 20px black;
   border-radius: 2%;
   text-transform:uppercase;
+  /* background-color: #FFED99; */
 
 }
 .artist{
@@ -130,6 +131,7 @@ border-radius:5%;
 height:0.6rem;
 cursor: pointer;
 background-color: white;
+
 }
 #progress{
   background-color: #393E46;
@@ -143,27 +145,34 @@ position: relative;
   position: absolute;
   right:0;
   /* font-size: 3rem; */
-  background-color: #3C8DAD;
-  border-radius: 100%;
+  background-color: #393E46;
+  color: #393E46;
 }
+.wave{
+  background-image:url("waveform.GIF");
+  /* opacity:0.5; */
+background-size: cover;
+background-blend-mode: multiply;
+}
+
 #replay{
 
 /* color:#5AA897; */
-font-size:2rem;
+font-size:2.5rem;
 cursor: pointer;
 
 }
-#replay:hover{
-  transform: scale(2);
+.replay-button{
+  outline:none;
+  border:none;
 }
-#spotify{
 
-  color: #1DB954;
-  font-size:3rem;
-cursor: pointer;
-background:black;
-border-radius: 80%;
-
+#Loop{
+  font-size:2.5rem;
+  margin-bottom:5%;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 40%;
 }
 a{
   padding: 0;
@@ -179,10 +188,16 @@ a{
 
 
 }
-
-audio{
+#loading{
+  position: fixed;
   width:100%;
-  margin-top: 10px;
+  height:100vh;
+  background: #fff
+  url("https://i.pinimg.com/originals/de/f5/82/def582384510684a44d878b1a287bd5e.gif")
+
+  no-repeat center;
+  z-index:9999;
+
 }
 @media (min-width:750px){
 
@@ -210,7 +225,9 @@ audio{
   #replay:hover{
     transform: scale(1.0);
   }
-  #spotify:hover{
-    transform: scale(1.0);
+
+  #Loop{
+    margin-top:5%;
+    font-size: 1.5rem;
   }
 }
