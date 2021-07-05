@@ -1,9 +1,19 @@
+function myFunction(){
+  // alert("Page loaded");
+  
+
+$("#loading").css("display","none");
+
+// $(".album_cover").slideUp(400);
+// $(".album_cover").slideDown(1200);
+
+}
 var songs = [
   {
     name:"Georgia.mp3",
     artist:"Vance Joy",
     title:"Georgia",
-    time:"3:50",
+    time:"3:51",
     spotify_url:"https://open.spotify.com/track/6Fha6tXHkL3r9m9nNqQG8p?si=EPYPdhQsRjmwnn9O58G7lA&dl_branch=1"
   },
 
@@ -11,28 +21,28 @@ var songs = [
     name:"Clocks.mp3",
     artist:"Coldplay",
     title:"Clocks",
-    time:"5:08",
+    time:"5:09",
     spotify_url:"https://open.spotify.com/track/0BCPKOYdS2jbQ8iyB56Zns?si=0htA6WJFRWK5a-55NDBHWg&dl_branch=1",
   },
   {
     name:"Gully_Boy.mp3",
     artist:"MIDIval Punditz, Raghu Dixit",
     title:"Train Song",
-    time:"3:58",
+    time:"3:59",
     spotify_url:"https://open.spotify.com/track/6SQDhaDMwLeRGHfyLb00d4?si=Ohh-Oe55T4eHzrxZyYYoFA&dl_branch=1"
   },
   {
     name:"LeapOfFaith.mp3",
     artist:"Christopher",
     title:"Leap of Faith",
-    time:"3:49",
+    time:"3:50",
     spotify_url:"https://open.spotify.com/track/571B8LxRZwmG1S1YNfGq4Q?si=Amv1_expRlmDDufgS8dKMQ&dl_branch=1"
   },
   {
     name:"Brown_Mundey.mp3",
     artist:"AP Dhillon",
     title:"Brown Munde",
-    time:"3:47",
+    time:"3:48",
     spotify_url:"https://open.spotify.com/track/58f4twRnbZOOVUhMUpplJ4?si=-9G6b8dvTDyu7bJN8pOjqQ&dl_branch=1"
   },
 
@@ -40,7 +50,7 @@ var songs = [
     name:"Alag_Aasmaan.mp3",
     artist:"Anuv Jain",
     title:"Alag Aasmaan",
-    time:"3:32",
+    time:"3:33",
     spotify_url:"https://open.spotify.com/track/74kCarkFBzXYXNkkYJIsG0?si=xfCdIEOqT-6kK6jjO4PF5A&dl_branch=1"
   }
 
@@ -65,11 +75,27 @@ var songs = [
           }
         }
 });
+var current_width;
+var autoplay=true;
+var onLoop=false;
 $("#replay").click(function(){
   song.load();
 playSong();
 });
+$("#Loop").click(function(){
+  if(autoplay===true){
+  autoplay=false
+  onLoop=true;
+$("#Loop").css("color","#558776")
 
+}
+  else if(autoplay===false){
+  autoplay=true;
+  onLoop=false;
+  $("#Loop").css("color","wave.GIF")}
+
+
+})
 
 
 
@@ -106,8 +132,17 @@ $(".artist").html(songs[i].artist)
 $(".duration").html(songs[i].time);
 
 // $(".album_cover").slideUp();
-playSong();
+$(".track").removeClass("wave");
+$(".track").css("color","#343A40");
 
+
+playSong();
+current_width=(song.currentTime/song.duration)*100;
+if((current_width)>0.1){
+  $(".track").addClass("wave");
+  $(".track").css("color","#FDFAF6");
+
+}
 
 
 
@@ -124,8 +159,17 @@ $(".track").html(songs[i].title)
 $(".artist").html(songs[i].artist)
 $(".duration").html(songs[i].time);
 
+$(".track").removeClass("wave");
+$(".track").css("color","#343A40");
+
 
 playSong();
+current_width=(song.currentTime/song.duration)*100;
+if((current_width)>0.1){
+  $(".track").addClass("wave");
+  $(".track").css("color","#FDFAF6");
+
+}
 
 
 });
@@ -144,7 +188,9 @@ function playSong(){
   $(".play-btn").removeClass('far fa-play-circle');
   $(".play-btn").addClass('far fa-pause-circle');
   $(".play-btn").css("background-color","#9FE6A0");
+  $(".play-btn").attr("title","Pause");
   $("body").addClass("bg");
+
 
 
 $(".duration").html(song.time);
@@ -158,8 +204,32 @@ setInterval(function(){
   $(".seconds").html(("0"+(((Math.floor(song.currentTime))+1))%60).slice(-2));
   $(".minutes").html(Math.floor((song.currentTime+1)/60));
 
-  var current_width=(song.currentTime/song.duration)*100;
+  current_width=(song.currentTime/song.duration)*100;
+  if((current_width)>0.1){
+    if(isPlaying===true){
+    $(".track").addClass("wave");
+    $(".track").css("color","#F4CCA4");
+  }}
   $("#progress").css("width",current_width+"%");
+  if(song.ended){
+    if(autoplay===true){
+    if(isPlaying===true){
+      pauseSong();
+    }
+    i=(i+1)%songs.length;
+    song=new Audio(songs[i].name);
+    $(".album_cover").attr("src",songs[i].name.replace("mp3","jpeg"));
+    $(".track").html(songs[i].title);
+    $(".artist").html(songs[i].artist)
+    $(".duration").html(songs[i].time);
+
+    // $(".album_cover").slideUp();
+    playSong();
+  }
+else if(onLoop===true){
+
+  playSong();
+}}
  }
 
 ,1000);
@@ -175,6 +245,11 @@ song.pause();
 $(".play-btn").removeClass('far fa-pause-circle');
 $(".play-btn").addClass('far fa-play-circle');
 $(".play-btn").css("background-color","#F5A962");
+$(".play-btn").attr("title","Play");
+$(".track").removeClass("wave");
+$(".track").css("color","#343A40");
+
+
 $("body").removeClass("bg");
 }
 
@@ -204,3 +279,30 @@ $("a").click(function(){
 $("a").attr("href",songs[i].spotify_url);
 
 })
+
+const checkwidth=song.currentTime/song.duration*100;
+
+console.log();
+
+// var liked=false;
+// console.log(songs[i].name);
+//*************-----Like button-----*********************
+
+// $("#like").click(function(){
+//   if(liked===false){
+//   $("#like").removeClass("far fa-heart");
+//   $("#like").addClass("fas fa-heart");
+//   $("#like").css("color","343A40");
+//   $("#like").css("opacity","0.8");
+//
+// liked=true;}
+// else if(liked===true){
+//   $("#like").removeClass("fas fa-heart");
+//   $("#like").addClass("far fa-heart");
+//   $("#like").css("color","black");
+//   $("#like").css("opacity","1.0");
+//
+//   liked=false;
+// }
+//   // $("#like").css("border-radius","50%");
+// })
