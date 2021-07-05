@@ -1,6 +1,6 @@
 function myFunction(){
   // alert("Page loaded");
-  
+
 
 $("#loading").css("display","none");
 
@@ -92,7 +92,9 @@ $("#Loop").css("color","#558776")
   else if(autoplay===false){
   autoplay=true;
   onLoop=false;
-  $("#Loop").css("color","wave.GIF")}
+  $("#Loop").css("color","#343A40")}
+
+
 
 
 })
